@@ -62,6 +62,7 @@
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JSUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -77,6 +78,9 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TimeSheetGrid.cs" />
+    <Compile Include="TimeSheetGridUtility.cs" />
+    <Compile Include="TimeSheetTable.cs" />
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,6 +97,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TimeSheetBO\TimeSheetBO.csproj">
+      <Project>{13fcbbbd-61cd-4973-97ab-2d257183f00c}</Project>
+      <Name>TimeSheetBO</Name>
+    </ProjectReference>
+    <ProjectReference Include="ClassLibrary1\TimeSheetUtil.csproj">
+      <Project>{729eca75-b052-4f0f-995a-ad7d85377172}</Project>
+      <Name>TimeSheetUtil</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

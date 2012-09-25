@@ -4,16 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Text;
 
-using PosBO;
+using TimeSheetBO;
 
-namespace Pos360
+namespace TimeSheet
 {
-    public class PosTable
+    public class TimeSheetTable
     {
-        private List<PosColumn> _columns = new List<PosColumn>();
+        private List<TimeSheetColumn> _columns = new List<TimeSheetColumn>();
         private string _tableCSSClass = "dyntable";
         private string _tableId = "tbl";
-        private POSGrid _grid;
+        private TimeSheetGrid _grid;
         private bool _encodeCalcFieldHTML = true;
 
         public bool encodeCalcFieldHTML
@@ -22,7 +22,7 @@ namespace Pos360
             set { _encodeCalcFieldHTML = value; }
         }
 
-        public POSGrid Grid
+        public TimeSheetGrid Grid
         {
             get { return _grid; }
             set { _grid = value; }
@@ -40,7 +40,7 @@ namespace Pos360
             set { _tableCSSClass = value; }
         }
 
-        public List<PosColumn> Columns
+        public List<TimeSheetColumn> Columns
         {
             get { return _columns; }
             set { _columns = value; }
@@ -51,12 +51,12 @@ namespace Pos360
             List<String> colJs = new List<string>();
             if (!string.IsNullOrEmpty(_grid.objectName))
             {
-                PosBase baseObj = _grid.User.protoPosBase(_grid.objectName);
+                TimeSheetBase baseObj = _grid.User.protoTimeSheetBase(_grid.objectName);
                 if (null != baseObj)
                 {
                     this.Columns.ForEach(col =>
                     {
-                        var field = baseObj.GetDataLink().PosField(baseObj, col.fieldName);
+                        var field = baseObj.GetDataLink().TimeSheetField(baseObj, col.fieldName);
                         if (null != field)
                         {
                             colJs.Add("{name:'" + col.fieldName.ToLower() + "', type:'" + field.FieldInfo.FieldType.ToString().Replace("System.", "") + "',required:" + field.IsRequired.ToString().ToLower() + "}");
@@ -216,7 +216,7 @@ namespace Pos360
 
     }
 
-    public class PosColumn
+    public class TimeSheetColumn
     {
         public string fieldName;
         public string headerName;
@@ -224,13 +224,13 @@ namespace Pos360
         public bool isCalculated;
         public bool isSubmit;
 
-        public PosColumn()
+        public TimeSheetColumn()
         {
             isHeader = true;
             isCalculated = false;
             isSubmit = true;
         }
 
-        public Func<PosBase, object> formatFunc;
+        public Func<TimeSheetBase, object> formatFunc;
     }
 }
