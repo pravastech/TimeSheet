@@ -7,45 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TimeSheet {
+namespace PosObjects {
     
     
-    public partial class Site1 {
+    public partial class SiteMaster {
         
         /// <summary>
-        /// head control.
+        /// HeadContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// form1 control.
+        /// HeadLoginView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// NavigationMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
-        /// Button1 control.
+        /// MainContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
     }
 }

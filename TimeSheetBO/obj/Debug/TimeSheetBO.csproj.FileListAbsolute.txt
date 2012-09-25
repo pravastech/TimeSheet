@@ -1,0 +1,7 @@
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.csprojResolveAssemblyReference.cache
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\bin\Debug\TimeSheetBO.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\bin\Debug\TimeSheetBO.pdb
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.pdb
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.pdb

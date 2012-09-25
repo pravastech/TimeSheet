@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TimeSheet
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class WebForm2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //Messagebox.Show("Welcome to Time Sheet");
         }
     }
 }

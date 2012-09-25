@@ -1,0 +1,5 @@
+F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheet.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheet.pdb
+F:\pavan\githubrepos\TimeSheet\TimeSheet\obj\Debug\TimeSheet.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheet\obj\Debug\TimeSheet.pdb
+F:\pavan\githubrepos\TimeSheet\TimeSheet\obj\Debug\TimeSheet.csprojResolveAssemblyReference.cache
