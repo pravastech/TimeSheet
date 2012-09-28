@@ -57,6 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\custom.js" />
+    <Content Include="js\General.js" />
+    <Content Include="js\GridUtil.js" />
+    <Content Include="js\jquery-ui-1.8.13.custom.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="User.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="WebForm2.aspx" />
@@ -81,6 +87,13 @@
     <Compile Include="TimeSheetGrid.cs" />
     <Compile Include="TimeSheetGridUtility.cs" />
     <Compile Include="TimeSheetTable.cs" />
+    <Compile Include="User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

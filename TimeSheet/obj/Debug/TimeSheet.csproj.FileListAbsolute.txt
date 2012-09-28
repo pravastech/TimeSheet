@@ -3,3 +3,7 @@ F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheet.pdb
 F:\pavan\githubrepos\TimeSheet\TimeSheet\obj\Debug\TimeSheet.dll
 F:\pavan\githubrepos\TimeSheet\TimeSheet\obj\Debug\TimeSheet.pdb
 F:\pavan\githubrepos\TimeSheet\TimeSheet\obj\Debug\TimeSheet.csprojResolveAssemblyReference.cache
+F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\ClassLibrary1.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheetBO.dll
+F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheetBO.pdb
+F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\ClassLibrary1.pdb

@@ -12,6 +12,7 @@ namespace TimeSheetBO
     public class Users : TimeSheetBase
     {
         private static Hashtable _cache = null;
+
         private String _UserName;
         private String _Password;
         private Guid _guidfield;
@@ -21,7 +22,6 @@ namespace TimeSheetBO
         private String _phone;
         private String _FullName;
         private String _Title;
-        private String _AllowedStores;
         private DateTime _LastPasswordChange;
         private String _tempPW;
         private DateTime _tempPWExpiration;
@@ -34,11 +34,11 @@ namespace TimeSheetBO
         private String _Role;
         private Boolean _VerfNextLogin;
         private Boolean _disabledLogin;
-        private String _department;
-        private String _usergroup;
-        private Boolean _allowGoogleCalendar;
-        private String _googleToken;
-        private String _googleTokenSecret;
+        private String _Address1;
+        private String _Address2;
+        private String _City;
+        private String _State;
+        private String _Zip;
 
 
         public Users()
@@ -50,7 +50,7 @@ namespace TimeSheetBO
         public Users(CurrentUser User)
             : base()
         {
-            
+            this.User = User;
         }
 
         public static UsersDataLink UsersDataLink
@@ -116,11 +116,6 @@ namespace TimeSheetBO
             get { return _Title; }
             set { SetString(ref _Title, value); }
         }
-        public String AllowedStores
-        {
-            get { return _AllowedStores; }
-            set { SetString(ref _AllowedStores, value); }
-        }
         public DateTime LastPasswordChange
         {
             get { return _LastPasswordChange; }
@@ -181,30 +176,30 @@ namespace TimeSheetBO
             get { return _disabledLogin; }
             set { SetBoolean(ref _disabledLogin, value); }
         }
-        public String department
+        public String Address1
         {
-            get { return _department; }
-            set { SetString(ref _department, value); }
+            get { return _Address1; }
+            set { SetString(ref _Address1, value); }
         }
-        public String usergroup
+        public String Address2
         {
-            get { return _usergroup; }
-            set { SetString(ref _usergroup, value); }
+            get { return _Address2; }
+            set { SetString(ref _Address2, value); }
         }
-        public Boolean allowGoogleCalendar
+        public String City
         {
-            get { return _allowGoogleCalendar; }
-            set { SetBoolean(ref _allowGoogleCalendar, value); }
+            get { return _City; }
+            set { SetString(ref _City, value); }
         }
-        public String googleToken
+        public String State
         {
-            get { return _googleToken; }
-            set { SetString(ref _googleToken, value); }
+            get { return _State; }
+            set { SetString(ref _State, value); }
         }
-        public String googleTokenSecret
+        public String Zip
         {
-            get { return _googleTokenSecret; }
-            set { SetString(ref _googleTokenSecret, value); }
+            get { return _Zip; }
+            set { SetString(ref _Zip, value); }
         }
 
     }
@@ -224,7 +219,6 @@ namespace TimeSheetBO
             AddFieldMapping("_phone", "phone", false, false);
             AddFieldMapping("_FullName", "FullName", false, false);
             AddFieldMapping("_Title", "Title", false, false);
-            AddFieldMapping("_AllowedStores", "AllowedStores", false, true);
             AddFieldMapping("_LastPasswordChange", "LastPasswordChange", false, false);
             AddFieldMapping("_tempPW", "tempPW", false, false);
             AddFieldMapping("_tempPWExpiration", "tempPWExpiration", false, false);
@@ -237,11 +231,11 @@ namespace TimeSheetBO
             AddFieldMapping("_Role", "Role", false, true);
             AddFieldMapping("_VerfNextLogin", "VerfNextLogin", false, true);
             AddFieldMapping("_disabledLogin", "disabledLogin", false, true);
-            AddFieldMapping("_department", "department", false, false);
-            AddFieldMapping("_usergroup", "usergroup", false, false);
-            AddFieldMapping("_allowGoogleCalendar", "allowGoogleCalendar", false, false);
-            AddFieldMapping("_googleToken", "googleToken", false, false);
-            AddFieldMapping("_googleTokenSecret", "googleTokenSecret", false, false);
+            AddFieldMapping("_Address1", "Address1", false, false);
+            AddFieldMapping("_Address2", "Address2", false, false);
+            AddFieldMapping("_City", "City", false, false);
+            AddFieldMapping("_State", "State", false, false);
+            AddFieldMapping("_Zip", "Zip", false, false);
 
         }
 

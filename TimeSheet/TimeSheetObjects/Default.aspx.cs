@@ -110,7 +110,7 @@ namespace TimeSheetBO
     public class [paramObjName] : TimeSheetBase
     {
         private static Hashtable _cache = null;
-        private CurrentUser User;
+
         [paramPrivateFields]
 
         public [paramObjName]() : base()

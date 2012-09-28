@@ -29,7 +29,7 @@ namespace TimeSheetBO
                 if (_user == null)
                 {
                     _user = new Users();
-                    _user.UserName = "TimeSheet360";
+                    _user.UserName = "TimeSheet";
                 }
                 return _user.UserName;
             }
@@ -45,7 +45,7 @@ namespace TimeSheetBO
         {
             this.User.UserName = username;
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(ConfigurationManager.AppSettings["ConnectionString"]);
-            csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet360" : this.UserName);
+            csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet" : this.UserName);
             _sqlCon = new SqlConnection(csb.ConnectionString);
         }
 
@@ -53,14 +53,14 @@ namespace TimeSheetBO
         {
             this.User.UserName = username;
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(conStr);
-            csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet360" : this.UserName);
+            csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet" : this.UserName);
             _sqlCon = new SqlConnection(conStr);
         }
 
         public TimeSheetContext(Users user)
         {
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(ConfigurationManager.AppSettings["ConnectionString"]);
-            csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet360" : user.UserName);
+            //csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet" : user.UserName);
             _sqlCon = new SqlConnection(csb.ConnectionString);
         }
 

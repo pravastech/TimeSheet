@@ -16,7 +16,7 @@ namespace TimeSheetBO
         private bool _loggedIn = true;
         private Users _Users;
         private String userName = "";
-        private List<string> _determinedAllowedStores;
+       //private List<string> _determinedAllowedStores;
         private TimeSheetContext _userContext;
         private ApplicationException _error;
         private List<ApplicationException> _errors = new List<ApplicationException>();

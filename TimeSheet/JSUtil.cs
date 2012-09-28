@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Text;
 
-namespace Pos360
+namespace TimeSheet
 {
     public class JSUtil
     {
