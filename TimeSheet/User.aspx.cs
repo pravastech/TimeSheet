@@ -20,17 +20,17 @@ namespace TimeSheet
                 {
                     Session["allSubmitKeys"] = allSubmitKeys + "," + submitKey;
                     CurrentUser user = new CurrentUser("TimeSheetAdmin");
-                    TimeSheetBO.Users TimeSheetObj = new TimeSheetBO.Users(user);
-                    TimeSheetObj.LoadSingle(TimeSheetObj, " where rolename=@rolename", "rolename", Request.Form["rolename"] ?? "");
-                    TimeSheetObj.UserName = Request.Form["UserName"];
-                    TimeSheetObj.FullName = Request.Form["FullName"];
-                    TimeSheetObj.emailAddress = Request.Form["EmailAddress"];
-                    TimeSheetObj.Address1 = Request.Form["Address1"];
-                    TimeSheetObj.Address2 = Request.Form["Address2"];
-                    TimeSheetObj.City = Request.Form["City"];
-                    TimeSheetObj.State = Request.Form["State"];
-                    TimeSheetObj.Role = Request.Form["Role"];
-                    if (TimeSheetObj.Save())
+                    TimeSheetBO.Users userRoleObj = new TimeSheetBO.Users(user);
+                    userRoleObj.LoadSingle(userRoleObj, " where rolename=@rolename", "rolename", Request.Form["rolename"] ?? "");
+                    userRoleObj.UserName = Request.Form["UserName"];
+                    userRoleObj.FullName = Request.Form["FullName"];
+                    userRoleObj.emailAddress = Request.Form["EmailAddress"];
+                    userRoleObj.Address1 = Request.Form["Address1"];
+                    userRoleObj.Address2 = Request.Form["Address2"];
+                    userRoleObj.City = Request.Form["City"];
+                    userRoleObj.State = Request.Form["State"];
+                    userRoleObj.Role = Request.Form["role"];
+                    if (userRoleObj.Save())
                     {
                         
                         ltrMessage.Text = "Store saved successfully.";
@@ -45,7 +45,7 @@ namespace TimeSheet
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            CurrentUser user = new CurrentUser("TimeSheetAdmin"); /* This will change later only test purposes it is here, later it will become login user */
+            CurrentUser user = new CurrentUser("UserName");
             var UserFieldsGrid = TimeSheetGridUtility.UserFieldsGrid(user);
 
             //var UserFields = new UserFields(user).load("", "", "").Cast<UserFields>().ToList();

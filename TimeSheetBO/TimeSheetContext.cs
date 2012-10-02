@@ -60,7 +60,7 @@ namespace TimeSheetBO
         public TimeSheetContext(Users user)
         {
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(ConfigurationManager.AppSettings["ConnectionString"]);
-            //csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet" : user.UserName);
+            csb.ApplicationName = (string.IsNullOrEmpty(this.UserName) ? "TimeSheet" : user.UserName);
             _sqlCon = new SqlConnection(csb.ConnectionString);
         }
 

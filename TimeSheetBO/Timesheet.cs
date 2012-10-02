@@ -9,42 +9,42 @@ using TimeSheetUtil;
 
 namespace TimeSheetBO
 {
-    public class timesheettask : TimeSheetBase
+    public class timesheet : TimeSheetBase
     {
         private static Hashtable _cache = null;
-
-        private String _username;
+        private CurrentUser User;
+        private String _usernamename;
         private String _projectname;
-        private String _taskname;
-        private DateTime _taskdate;
+        private String _tasknamename;
+        private DateTime _date;
         private String _percentage;
         private String _notes;
         private String _codesnippet;
 
 
-        public timesheettask()
+        public timesheet()
             : base()
         {
 
         }
 
-        public timesheettask(CurrentUser User)
+        public timesheet(CurrentUser User)
             : base()
         {
             this.User = User;
         }
 
-        public static timesheettaskDataLink timesheettaskDataLink
+        public static timesheetDataLink timesheetDataLink
         {
             get
             {
-                return timesheettaskDataLink.Instance;
+                return timesheetDataLink.Instance;
             }
         }
 
         public override TimeSheetDataLink GetDataLink()
         {
-            return timesheettaskDataLink;
+            return timesheetDataLink;
         }
 
         public static Hashtable GetCache1()
@@ -52,25 +52,25 @@ namespace TimeSheetBO
             return _cache;
         }
 
-        public String username
+        public String usernamename
         {
-            get { return _username; }
-            set { SetString(ref _username, value); }
+            get { return _usernamename; }
+            set { SetString(ref _usernamename, value); }
         }
         public String projectname
         {
             get { return _projectname; }
             set { SetString(ref _projectname, value); }
         }
-        public String taskname
+        public String tasknamename
         {
-            get { return _taskname; }
-            set { SetString(ref _taskname, value); }
+            get { return _tasknamename; }
+            set { SetString(ref _tasknamename, value); }
         }
-        public DateTime taskdate
+        public DateTime date
         {
-            get { return _taskdate; }
-            set { SetDateTime(ref _taskdate, value); }
+            get { return _date; }
+            set { SetDateTime(ref _date, value); }
         }
         public String percentage
         {
@@ -89,34 +89,34 @@ namespace TimeSheetBO
         }
 
     }
-    public sealed class timesheettaskDataLink : TimeSheetDataLink
+    public sealed class timesheetDataLink : TimeSheetDataLink
     {
-        private static volatile timesheettaskDataLink _instance = new timesheettaskDataLink();
+        private static volatile timesheetDataLink _instance = new timesheetDataLink();
 
-        private timesheettaskDataLink()
-            : base(typeof(timesheettask), "timesheettask")
+        private timesheetDataLink()
+            : base(typeof(timesheet), "timesheet")
         {
-            AddFieldMapping("_username", "username", false, false);
+            AddFieldMapping("_usernamename", "usernamename", false, false);
             AddFieldMapping("_projectname", "projectname", false, false);
-            AddFieldMapping("_taskname", "taskname", false, false);
-            AddFieldMapping("_taskdate", "taskdate", false, false);
+            AddFieldMapping("_tasknamename", "tasknamename", false, false);
+            AddFieldMapping("_date", "date", false, false);
             AddFieldMapping("_percentage", "percentage", false, false);
             AddFieldMapping("_notes", "notes", false, false);
             AddFieldMapping("_codesnippet", "codesnippet", false, false);
 
         }
 
-        public static timesheettaskDataLink Instance
+        public static timesheetDataLink Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    lock (typeof(timesheettaskDataLink))
+                    lock (typeof(timesheetDataLink))
                     {
                         if (_instance == null)
                         {
-                            _instance = new timesheettaskDataLink();
+                            _instance = new timesheetDataLink();
                         }
                     }
                 }
@@ -127,7 +127,7 @@ namespace TimeSheetBO
 
         public override TimeSheetBase Init()
         {
-            return new timesheettask();
+            return new timesheet();
         }
     }
 

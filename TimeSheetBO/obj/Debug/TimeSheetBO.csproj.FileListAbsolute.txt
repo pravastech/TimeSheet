@@ -5,3 +5,17 @@ F:\pavan\githubrepos\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.dll
 F:\pavan\githubrepos\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.pdb
 F:\pavan\githubrepos\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.dll
 F:\pavan\githubrepos\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\bin\Debug\TimeSheetBO.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\bin\Debug\TimeSheetBO.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.csprojResolveAssemblyReference.cache
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\bin\Debug\TimeSheetBO.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\bin\Debug\TimeSheetBO.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\bin\Debug\ClassLibrary1.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.csprojResolveAssemblyReference.cache
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheetBO\obj\Debug\TimeSheetBO.pdb

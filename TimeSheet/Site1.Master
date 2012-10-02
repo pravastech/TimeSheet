@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TimeSheet.Site1" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -10,14 +9,37 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div class="main">
+                <div class="login" style="text-align: right">
+                    <h1 style="width: 320px">
+                    Timesheet validations
+               </h1>
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="contents">
+                <nav>
+                    <ul id="menu">
+                        <li><a id="A1" runat="server" href="~/">Home</a></li>
+                        <li><a id="A2" runat="server" href="~/About.aspx">About</a></li>
+                        <li><a id="A3" runat="server" href="~/Contact.aspx">Contact</a></li>
+                    </ul>
+                </nav>                
+            </div>
+        </div>
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                  
         </asp:ContentPlaceHolder>
-    </div>
-        <p>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-        </p>
+        <br />
+        
     </form>
 </body>
 </html>
+

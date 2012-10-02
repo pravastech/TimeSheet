@@ -62,11 +62,12 @@
     <Content Include="js\GridUtil.js" />
     <Content Include="js\jquery-ui-1.8.13.custom.min.js" />
     <Content Include="js\jquery.js" />
-    <Content Include="TimeSheettask.aspx" />
+    <Content Include="task.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="WebForm2.aspx" />
+    <Content Include="login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JSUtil.cs" />
@@ -85,16 +86,16 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="task.aspx.cs">
+      <DependentUpon>task.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="task.aspx.designer.cs">
+      <DependentUpon>task.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TimeSheetGrid.cs" />
     <Compile Include="TimeSheetGridUtility.cs" />
     <Compile Include="TimeSheetTable.cs" />
-    <Compile Include="TimeSheettask.aspx.cs">
-      <DependentUpon>TimeSheettask.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TimeSheettask.aspx.designer.cs">
-      <DependentUpon>TimeSheettask.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

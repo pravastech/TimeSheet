@@ -184,10 +184,12 @@ namespace TimeSheetBO
                 SqlCommand command = context.CreateCommand(sql);
                 if (args.Length > 1)
                 {
+                    int maxLength = (args.Length / 2);
+                    maxLength = maxLength != 0 ? maxLength - 1 : 0;
                     int Cnt = 0;
-                    for (int PCnt = 0; PCnt <= args.Length % 2; PCnt++)
+                    for (int PCnt = 0; PCnt <= maxLength; PCnt++)
                     {
-                        SqlParameter oParam = new SqlParameter("@" + args[PCnt].ToString(), args[Cnt + 1]);
+                        SqlParameter oParam = new SqlParameter("@" + args[Cnt].ToString(), args[Cnt + 1]);
                         command.Parameters.Add(oParam);
                         Cnt += 2;
                     }

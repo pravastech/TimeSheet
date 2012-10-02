@@ -12,7 +12,7 @@ namespace TimeSheetBO
     public class Users : TimeSheetBase
     {
         private static Hashtable _cache = null;
-
+        private CurrentUser User;
         private String _UserName;
         private String _Password;
         private Guid _guidfield;

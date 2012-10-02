@@ -32,7 +32,8 @@ namespace TimeSheetBO
         {
             get
             {
-                if (_userContext == null)
+                //if (_userContext == null)
+                    if (_userContext == null)
                 {
                     _userContext = new TimeSheetContext(this.Users);
                 }

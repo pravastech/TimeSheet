@@ -164,7 +164,7 @@ namespace TimeSheet
                 sb.Append("<td>");
                 if (_grid.allowEdit)
                 {
-                    sb.Append(@"<a href=""javascript:void(0)"" onclick=""GridUtil.editRow('" + Cnt + @"');"">Edit</a>");
+                    sb.Append(@"<a href=""javascript:void(0)"" onclick=""GridUtil.editRow('" + Cnt + @"');"">Editing</a>");
                 }
                 if (_grid.allowEdit && _grid.allowDelete)
                 {

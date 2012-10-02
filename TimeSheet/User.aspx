@@ -43,21 +43,20 @@
         <form id="form" action="" method="post">
             <asp:Literal ID="ltrHiddens" runat="server"></asp:Literal>
             <fieldset>
-                 <p><label for="UserName">UserName </label><input type="text" name="UserName" id="username" class="sf" /></p>
-                 <p><label for="FullName">FullName</label><input type="text" name="FullName" id="fullname" /></p>
-                <p><label for="Password">Password</label><input type="text" name="Password" id="password" /></p>
-                <p><label for="EmailAddress">EmailAddress</label><input type="text" name="EmailAddress" id="emailaddress" /></p>
-                <p><label for="Address1">Address1</label><input type="text"  name="Address1" id="address1" /></p>
-                 <p><label for="Address2">Address2 </label><input type="text" name="Address2" id="address2" class="sf" /></p>
-                 <p><label for="City">City </label><input type="text" name="City" id="city" class="sf" /></p>
-                 <p><label for="State">State </label><input type="text" name="State" id="state" class="sf" maxlength="2" /></p>
-                 <p><label for="Zip">Zip </label><input type="text" name="Zip" id="zip" class="sf" /></p>
-                 <p><label for="Phone">Phone </label><input type="text" name="Phone" id="phone" class="sf" /></p>
-                 <p><label for="Role">Role </label><input type="text" name="Role" id="role" class="sf" /></p>
+                 <p><label for="UserName">UserName </label><input type="text" name="UserName" id="UserName" class="sf" /></p>
+                 <p><label for="FullName">FullName</label><input type="text"< name="FullName" id="FullName" /></p>
+                <p><label for="Password">Password</label><input type="text"< name="Password" id="Password" /></p>
+                <p><label for="EmailAddress">EmailAddress</label><input type="text"< name="EmailAddress" id="EmailAddress" /></p>
+                <p><label for="Address1">Address1</label><input type="text"< name="Address1" id="Address1" /></p>
+                 <p><label for="Address2">Address2 </label><input type="text" name="Address2" id="Address2" class="sf" /></p>
+                 <p><label for="City">City </label><input type="text" name="City" id="City" class="sf" /></p>
+                 <p><label for="State">State </label><input type="text" name="State" id="State" class="sf" /></p>
+                 <p><label for="Zip">Zip </label><input type="text" name="Zip" id="Zip" class="sf" /></p>
+                 <p><label for="Phone">Phone </label><input type="text" name="Phone" id="Phone" class="sf" /></p>
+                 <p><label for="Role">Role </label><input type="text" name="Role" id="Role" class="sf" /></p>
                 <p>
                     <button type="button" onclick="GridUtil.saveRow();">Submit</button>
                 </p>
-
 
                 </fieldset>
          </form>
