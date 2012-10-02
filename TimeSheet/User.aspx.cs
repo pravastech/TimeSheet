@@ -52,7 +52,7 @@ namespace TimeSheet
             var UserFieldsGrid = TimeSheetGridUtility.UserFieldsGrid(user);
 
             //var UserFields = new UserFields(user).load("", "", "").Cast<UserFields>().ToList();
-            var Users = new Users(user).Load("", "", user).Cast<Users>().ToList();
+            var Users = new TimeSheetBO.Users(user).Load("", "", user).Cast<TimeSheetBO.Users>().ToList();
             UserFieldsGrid.Rows.AddRange(Users);
 
             ltrGridUI.Text = UserFieldsGrid.gridTable.ToHTML();

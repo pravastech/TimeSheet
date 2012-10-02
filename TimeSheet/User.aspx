@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <script type="text/javascript" src="/js/jquery.js?20120922"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.8.13.custom.min.js?20120922"></script>
-    <script type="text/javascript" src="/js/General.js?20120922"></script>
-    <script type="text/javascript" src="/js/GridUtil.js?20120922"></script>
-    
+    <script type="text/javascript" src="/js/jquery.js?20121002"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.8.13.custom.min.js?20121002"></script>
+    <script type="text/javascript" src="/js/General.js?20121002"></script>
+    <script type="text/javascript" src="/js/GridUtil.js?20121002"></script>
+    <%--<script src="~/Scripts/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>--%>  
 <script type="text/javascript">
     var gridData = [];
 
