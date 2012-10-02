@@ -24,14 +24,14 @@ namespace TimeSheet
                     Guid guidfield;
                     Guid.TryParse(Request.Form["guidfield"], out guidfield);
                     userRoleObj.LoadSingle(userRoleObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
-                    userRoleObj.UserName = Request.Form["UserName"];
-                    userRoleObj.FullName = Request.Form["FullName"];
+                    userRoleObj.UserName = Request.Form["username"];
+                    userRoleObj.FullName = Request.Form["fullname"];
                     userRoleObj.emailAddress = Request.Form["emailAddress"];
-                    userRoleObj.Address1 = Request.Form["Address1"];
-                    userRoleObj.Address2 = Request.Form["Address2"];
-                    userRoleObj.City = Request.Form["City"];
-                    userRoleObj.State = Request.Form["State"];
-                    userRoleObj.Role = Request.Form["Role"];
+                    userRoleObj.Address1 = Request.Form["address1"];
+                    userRoleObj.Address2 = Request.Form["address2"];
+                    userRoleObj.City = Request.Form["city"];
+                    userRoleObj.State = Request.Form["state"];
+                    userRoleObj.Role = Request.Form["role"];
                    
                     if (userRoleObj.Save())
                     {
