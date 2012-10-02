@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="timesheettask.aspx.cs" Inherits="TimeSheet.timesheettask" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TimeSheettask.aspx.cs" Inherits="TimeSheet.timesheettask" %>
 
 <!DOCTYPE html>
 
@@ -18,11 +18,11 @@
     });
 
     GridUtil.UIFormName = function () {
-        return "UserFieldsUIForm";
+        return "TimeSheetTaskUIForm";
     }
 
     GridUtil.Title = function () {
-        return "UserFields";
+        return "timesheettask";
     }
 </script>
 
@@ -39,7 +39,7 @@
     </div>
     </form>
 
-    <div class="form_default" style="display:none;" id="UserFieldsUIForm">
+    <div class="form_default" style="display:none;" id="TimeSheetTaskUIForm">
         <form id="form" action="" method="post">
             <asp:Literal ID="ltrHiddens" runat="server"></asp:Literal>
             <fieldset>

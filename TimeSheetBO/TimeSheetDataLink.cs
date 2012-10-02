@@ -28,22 +28,22 @@ namespace TimeSheetBO
         private static Logger _performanceLog = new Logger("MQPerformace.log");
         public abstract TimeSheetBase Init();
 
-        protected string LockingHintClause 
+        protected string LockingHintClause
         {
-            get 
+            get
             {
-                if (_lockingHint == null) 
+                if (_lockingHint == null)
                 {
                     return string.Empty;
-                } 
-                else 
+                }
+                else
                 {
                     return string.Format(" WITH ({0}) ", _lockingHint);
                 }
             }
         }
 
-        public static IDataReader ExecuteReader(IDbCommand command) 
+        public static IDataReader ExecuteReader(IDbCommand command)
         {
             UInt64 start = HiResTimer.CurrentCount;
             IDataReader reader = command.ExecuteReader();
@@ -51,7 +51,7 @@ namespace TimeSheetBO
             return reader;
         }
 
-        public static int ExecuteNonQuery(IDbCommand command) 
+        public static int ExecuteNonQuery(IDbCommand command)
         {
             UInt64 start = HiResTimer.CurrentCount;
             int result = command.ExecuteNonQuery();
@@ -59,7 +59,7 @@ namespace TimeSheetBO
             return result;
         }
 
-        public static object ExecuteScalar(IDbCommand command) 
+        public static object ExecuteScalar(IDbCommand command)
         {
             UInt64 start = HiResTimer.CurrentCount;
             object result = command.ExecuteScalar();
@@ -67,40 +67,40 @@ namespace TimeSheetBO
             return result;
         }
 
-        protected void AddFieldMapping(string attributeName, string fieldName, bool hasDefault, bool isRequired) 
+        protected void AddFieldMapping(string attributeName, string fieldName, bool hasDefault, bool isRequired)
         {
             TimeSheetFieldMap map = new TimeSheetFieldMap(_TimeSheetBaseType, attributeName, fieldName, hasDefault, isRequired);
             _fieldMappings[attributeName] = map;
             _attributeNames.Add(attributeName);
         }
 
-        public IDictionary FieldMappings 
+        public IDictionary FieldMappings
         {
-            get 
+            get
             {
                 return _fieldMappings;
             }
         }
 
-        public IList AttributeNames 
+        public IList AttributeNames
         {
-            get 
+            get
             {
                 return _attributeNames;
             }
         }
 
-        public string TableName 
+        public string TableName
         {
-            get 
+            get
             {
                 return _tableName;
             }
         }
 
-        public string PrimaryKey 
+        public string PrimaryKey
         {
-            get 
+            get
             {
                 return _PrimaryKey;
             }
@@ -112,14 +112,14 @@ namespace TimeSheetBO
             set { _traceLogEnabled = value; }
         }
 
-        protected TimeSheetDataLink(Type TimeSheetBaseType, string tableName) 
+        protected TimeSheetDataLink(Type TimeSheetBaseType, string tableName)
         {
             _TimeSheetBaseType = TimeSheetBaseType;
             _tableName = tableName;
             _PrimaryKey = "guidfield";
         }
 
-        public virtual ICollection FindReferencesTo(TimeSheetContext context, TimeSheetBase obj) 
+        public virtual ICollection FindReferencesTo(TimeSheetContext context, TimeSheetBase obj)
         {
             return EmptyList;
         }
@@ -140,7 +140,7 @@ namespace TimeSheetBO
                     int SCnt = 0;
                     for (int PCnt = 0; PCnt <= maxLength; PCnt++)
                     {
-                        SqlParameter oParam = new SqlParameter("@" + args[SCnt].ToString(), args[SCnt+1]);
+                        SqlParameter oParam = new SqlParameter("@" + args[SCnt].ToString(), args[SCnt + 1]);
                         command.Parameters.Add(oParam);
                         SCnt += 2;
                     }
@@ -149,7 +149,7 @@ namespace TimeSheetBO
 
                 using (IDataReader dataReader = ExecuteReader(command))
                 {
-                    while(dataReader.Read())
+                    while (dataReader.Read())
                     {
                         TimeSheetBase obj = (TimeSheetBase)Activator.CreateInstance(baseObj.GetType(), new object[] { baseObj.User });
                         obj.SetAttributes(dataReader);
@@ -184,10 +184,12 @@ namespace TimeSheetBO
                 SqlCommand command = context.CreateCommand(sql);
                 if (args.Length > 1)
                 {
+                    int maxLength = (args.Length / 2);
+                    maxLength = maxLength != 0 ? maxLength - 1 : 0;
                     int Cnt = 0;
-                    for (int PCnt = 0; PCnt <= args.Length % 2; PCnt++)
+                    for (int PCnt = 0; PCnt <= maxLength; PCnt++)
                     {
-                        SqlParameter oParam = new SqlParameter("@" + args[PCnt].ToString(), args[Cnt + 1]);
+                        SqlParameter oParam = new SqlParameter("@" + args[Cnt].ToString(), args[Cnt + 1]);
                         command.Parameters.Add(oParam);
                         Cnt += 2;
                     }
@@ -203,7 +205,7 @@ namespace TimeSheetBO
                     }
                     else
                     {
-                        string message = string.Format("No object read from database; table = {0}, guidfield = {1}",TableName,PrimaryKey);
+                        string message = string.Format("No object read from database; table = {0}, guidfield = {1}", TableName, PrimaryKey);
                     }
                 }
             }
@@ -214,8 +216,8 @@ namespace TimeSheetBO
             catch (Exception)
             {
                 LogSqlCommand(LogLevel.Error, sql, null);
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
@@ -277,7 +279,7 @@ namespace TimeSheetBO
         }
 
         // Inserts a MQ object into the database
-        public bool Insert(TimeSheetBase o, TimeSheetContext contextParam) 
+        public bool Insert(TimeSheetBase o, TimeSheetContext contextParam)
         {
             bool result = false;
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
@@ -319,8 +321,8 @@ namespace TimeSheetBO
             catch (Exception)
             {
                 LogSqlCommand(LogLevel.Error, sql, command);
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
@@ -328,7 +330,7 @@ namespace TimeSheetBO
             return result;
         }
 
-        public bool Update(TimeSheetBase o, TimeSheetContext contextParam) 
+        public bool Update(TimeSheetBase o, TimeSheetContext contextParam)
         {
             bool result = false;
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
@@ -347,7 +349,7 @@ namespace TimeSheetBO
                     _log.Debug("Update: fieldMap.AttributeName = " + fieldMap.AttributeName);
                     if (fieldMap.FieldName == PrimaryKey)
                     {
-                        guidvalue = fieldMap.FieldInfo.GetValue(o); 
+                        guidvalue = fieldMap.FieldInfo.GetValue(o);
                     }
                     // if the attribute value is the same as the clean object's value, don't add the parameter
                     object attributeValue = fieldMap.FieldInfo.GetValue(o);
@@ -383,8 +385,8 @@ namespace TimeSheetBO
             catch (Exception)
             {
                 LogSqlCommand(LogLevel.Error, sql, command);
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
@@ -392,19 +394,19 @@ namespace TimeSheetBO
             return result;
         }
 
-        public static int Update(TimeSheetContext contextParam, string updateStatement, params SqlParameter [] sqlParams) 
+        public static int Update(TimeSheetContext contextParam, string updateStatement, params SqlParameter[] sqlParams)
         {
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
 
-            int rowsUpdated=0;
+            int rowsUpdated = 0;
             SqlCommand command = null;
 
-            try 
+            try
             {
                 command = context.CreateCommand(updateStatement);
-                if (sqlParams!=null) 
+                if (sqlParams != null)
                 {
-                    foreach (SqlParameter param in sqlParams) 
+                    foreach (SqlParameter param in sqlParams)
                     {
                         command.Parameters.Add(param);
                     }
@@ -413,16 +415,16 @@ namespace TimeSheetBO
                 context.OpenConnection();
 
                 rowsUpdated = ExecuteNonQuery(command);
-            } 
-            catch (Exception e) 
+            }
+            catch (Exception e)
             {
                 LogSqlCommand(LogLevel.Error, updateStatement, command);
                 if (e is SqlException)
                 {
-                    LogSqlException("Exception caught in Update(TimeSheetContext, string).", (SqlException) e);
+                    LogSqlException("Exception caught in Update(TimeSheetContext, string).", (SqlException)e);
                 }
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
@@ -430,7 +432,7 @@ namespace TimeSheetBO
             return rowsUpdated;
         }
 
-        public bool Delete(TimeSheetBase o, TimeSheetContext contextParam) 
+        public bool Delete(TimeSheetBase o, TimeSheetContext contextParam)
         {
             bool result = false;
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
@@ -455,8 +457,8 @@ namespace TimeSheetBO
             catch (Exception)
             {
                 LogSqlCommand(LogLevel.Error, deleteStatement, command);
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
@@ -464,7 +466,7 @@ namespace TimeSheetBO
             return result;
         }
 
-        public int Count(TimeSheetContext contextParam, string whereClause, params SqlParameter[] sqlParams) 
+        public int Count(TimeSheetContext contextParam, string whereClause, params SqlParameter[] sqlParams)
         {
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
 
@@ -472,7 +474,7 @@ namespace TimeSheetBO
             StringBuilder sql = null;
 
             int count = 0;
-            try 
+            try
             {
                 sql = new StringBuilder();
                 sql.Append("SELECT count(*) FROM ").Append(TableName);
@@ -481,9 +483,9 @@ namespace TimeSheetBO
                 _log.Debug("Count: sql = " + sql);
 
                 command = context.CreateCommand(sql.ToString());
-                if (sqlParams!=null) 
+                if (sqlParams != null)
                 {
-                    foreach (SqlParameter param in sqlParams) 
+                    foreach (SqlParameter param in sqlParams)
                     {
                         command.Parameters.Add(param);
                     }
@@ -492,34 +494,34 @@ namespace TimeSheetBO
                 context.OpenConnection();
 
                 object result = ExecuteScalar(command);
-                if (result==null || (result is DBNull)) 
+                if (result == null || (result is DBNull))
                 {
                     count = 0;
-                } 
-                else 
+                }
+                else
                 {
                     count = (int)result;
                 }
-            } 
-            catch (Exception e) 
+            }
+            catch (Exception e)
             {
-                if (sql != null) 
+                if (sql != null)
                 {
                     LogSqlCommand(LogLevel.Error, sql.ToString(), command);
                 }
                 if (e is SqlException)
                 {
-                    LogSqlException("Exception caught in Count().", (SqlException) e);
-                }                
-            } 
-            finally 
+                    LogSqlException("Exception caught in Count().", (SqlException)e);
+                }
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
             return count;
         }
 
-        public decimal Sum(TimeSheetContext contextParam, string whereClause, string sumField, params SqlParameter[] sqlParams) 
+        public decimal Sum(TimeSheetContext contextParam, string whereClause, string sumField, params SqlParameter[] sqlParams)
         {
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
 
@@ -527,7 +529,7 @@ namespace TimeSheetBO
             StringBuilder sql = null;
 
             decimal sum = 0m;
-            try 
+            try
             {
                 sql = new StringBuilder();
                 sql.Append("SELECT sum(").Append(sumField).Append(") FROM ").Append(TableName);
@@ -536,7 +538,7 @@ namespace TimeSheetBO
                 _log.Debug("Sum: sql = " + sql);
 
                 command = context.CreateCommand(sql.ToString());
-                foreach (SqlParameter sqlParam in sqlParams) 
+                foreach (SqlParameter sqlParam in sqlParams)
                 {
                     command.Parameters.Add(sqlParam);
                 }
@@ -544,34 +546,34 @@ namespace TimeSheetBO
                 context.OpenConnection();
 
                 object result = ExecuteScalar(command);
-                if (result==null || (result is DBNull)) 
+                if (result == null || (result is DBNull))
                 {
                     sum = 0m;
-                } 
-                else 
+                }
+                else
                 {
                     sum = (decimal)result;
                 }
-            } 
-            catch (Exception e) 
+            }
+            catch (Exception e)
             {
-                if (sql != null) 
+                if (sql != null)
                 {
                     LogSqlCommand(LogLevel.Error, sql.ToString(), command);
                 }
                 if (e is SqlException)
                 {
-                    LogSqlException("Exception caught in Sum().", (SqlException) e);
+                    LogSqlException("Exception caught in Sum().", (SqlException)e);
                 }
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
             return sum;
         }
 
-        public int Delete(TimeSheetContext contextParam, string whereClause, params SqlParameter[] sqlParams) 
+        public int Delete(TimeSheetContext contextParam, string whereClause, params SqlParameter[] sqlParams)
         {
             TimeSheetContext context = TimeSheetContext.Create(contextParam);
 
@@ -579,21 +581,21 @@ namespace TimeSheetBO
             StringBuilder sql = null;
 
             int count = 0;
-            try 
+            try
             {
                 sql = new StringBuilder();
                 sql.Append("DELETE FROM ").Append(TableName);
                 sql.Append(LockingHintClause);
-                if (whereClause.Length>0) 
+                if (whereClause.Length > 0)
                 {
                     sql.Append(" WHERE ").Append(whereClause);
                 }
                 _log.Debug("Delete: sql = " + sql);
 
                 command = context.CreateCommand(sql.ToString());
-                if (sqlParams!=null) 
+                if (sqlParams != null)
                 {
-                    foreach (SqlParameter param in sqlParams) 
+                    foreach (SqlParameter param in sqlParams)
                     {
                         command.Parameters.Add(param);
                     }
@@ -602,10 +604,10 @@ namespace TimeSheetBO
                 context.OpenConnection();
                 count = ExecuteNonQuery(command);
 
-            } 
-            catch (Exception e) 
+            }
+            catch (Exception e)
             {
-                if (sql != null) 
+                if (sql != null)
                 {
                     LogSqlCommand(LogLevel.Error, sql.ToString(), command);
                 }
@@ -613,15 +615,15 @@ namespace TimeSheetBO
                 {
                     LogSqlException("Exception caught in Delete().", (SqlException)e);
                 }
-            } 
-            finally 
+            }
+            finally
             {
                 context.CloseConnection(contextParam);
             }
             return count;
         }
 
-        public int DeleteAll(TimeSheetContext context) 
+        public int DeleteAll(TimeSheetContext context)
         {
             return Delete(context, string.Empty);
         }
@@ -667,7 +669,7 @@ namespace TimeSheetBO
                 LogSqlCommand(LogLevel.Error, sql, command);
                 if (e is SqlException)
                 {
-                    LogSqlException("Exception caught in Find().", (SqlException) e);
+                    LogSqlException("Exception caught in Find().", (SqlException)e);
                 }
             }
             finally
@@ -698,14 +700,14 @@ namespace TimeSheetBO
             return obj;
         }
 
-        public virtual string SerializeHeader() 
+        public virtual string SerializeHeader()
         {
             StringBuilder buffer = new StringBuilder();
 
-            for (int i = 0; i < AttributeNames.Count; i++) 
+            for (int i = 0; i < AttributeNames.Count; i++)
             {
                 buffer.Append(((TimeSheetFieldMap)FieldMappings[AttributeNames[i]]).FieldName);
-                if (i < AttributeNames.Count - 1) 
+                if (i < AttributeNames.Count - 1)
                 {
                     buffer.Append(",");
                 }
@@ -714,66 +716,66 @@ namespace TimeSheetBO
             return buffer.ToString();
         }
 
-        protected static void LogSqlException(string message, SqlException exception) 
+        protected static void LogSqlException(string message, SqlException exception)
         {
             _log.Error(message, exception);
 
-            for (int i = 0; i < exception.Errors.Count; i++) 
+            for (int i = 0; i < exception.Errors.Count; i++)
             {
                 _log.Error("Error #{0}: Number={1}, State={2}, Class={3}, Message='{4}'",
                            i, exception.Errors[i].Number, exception.Errors[i].State, exception.Errors[i].Class, exception.Errors[i].Message);
             }
         }
 
-		protected static void LogSqlCommand(LogLevel logLevel, string sql, SqlCommand command) 
-		{
+        protected static void LogSqlCommand(LogLevel logLevel, string sql, SqlCommand command)
+        {
             LogSqlCommand(_log, logLevel, sql, command);
-            if (_traceLogEnabled) 
+            if (_traceLogEnabled)
             {
                 LogSqlCommand(_traceLog, logLevel, sql, command);
             }
         }
 
-		private static void LogSqlCommand(Logger logger, LogLevel logLevel, string sql, SqlCommand command) 
-		{
-            if (sql != null && sql != string.Empty) 
+        private static void LogSqlCommand(Logger logger, LogLevel logLevel, string sql, SqlCommand command)
+        {
+            if (sql != null && sql != string.Empty)
             {
                 logger.Log(logLevel, sql, null);
             }
-            if (command != null) 
+            if (command != null)
             {
-                if (command.Transaction!=null) 
+                if (command.Transaction != null)
                 {
                     logger.Log(logLevel, "SqlTransaction = " + command.Transaction.GetHashCode(), null);
-                } 
-                else 
+                }
+                else
                 {
                     logger.Log(logLevel, "SqlTransaction = null", null);
                 }
 
-                foreach (SqlParameter param in command.Parameters) 
+                foreach (SqlParameter param in command.Parameters)
                 {
                     logger.Log(logLevel, param.ParameterName + " = '" + param.Value + "'", null);
                 }
             }
         }
 
-		protected static void LogCommandExecutionTime(double executeTimeSeconds, IDbCommand command) 
-		{
-            try 
+        protected static void LogCommandExecutionTime(double executeTimeSeconds, IDbCommand command)
+        {
+            try
             {
                 string message;
-                if (_traceLogEnabled && _traceLog.IsDebugEnabled) 
+                if (_traceLogEnabled && _traceLog.IsDebugEnabled)
                 {
                     IDbTransaction sqlTrans = command.Transaction;
                     StringBuilder sb = new StringBuilder();
-                    sb.AppendFormat("\t{0:F2}\t{1}\t{2}", 
-                                            executeTimeSeconds * 1000, 
-                                            (sqlTrans!=null ? sqlTrans.GetHashCode() : 0), 
+                    sb.AppendFormat("\t{0:F2}\t{1}\t{2}",
+                                            executeTimeSeconds * 1000,
+                                            (sqlTrans != null ? sqlTrans.GetHashCode() : 0),
                                             command.CommandText);
 
                     // Add command parameter names and values
-                    foreach (IDataParameter param in command.Parameters) 
+                    foreach (IDataParameter param in command.Parameters)
                     {
                         sb.AppendFormat("{0}\t\t\t\t\t\t{1} = {2}", Environment.NewLine, param.ParameterName, param.Value);
                     }
@@ -781,21 +783,21 @@ namespace TimeSheetBO
                     LogSqlCommand(_traceLog, LogLevel.Debug, message, null);
                 }
 
-                if (executeTimeSeconds > 6000) 
+                if (executeTimeSeconds > 6000)
                 {
                     message = string.Format("The following sql statement took {0:F2} seconds to execute:{1}{2}{3}",
-                                            executeTimeSeconds, Environment.NewLine, command.CommandText, new StackTrace(1,true));
+                                            executeTimeSeconds, Environment.NewLine, command.CommandText, new StackTrace(1, true));
                     _performanceLog.Warn(message);
                 }
-            } 
-            catch (Exception e) 
+            }
+            catch (Exception e)
             {
                 // Don't want no exception thrown from this method, no-how
                 Console.Error.WriteLine("Exception caught in LogCommandExecutionTime()." + e);
             }
         }
 
-        private string CreateSelectStatement() 
+        private string CreateSelectStatement()
         {
             return CreateSelectStatement("");
         }
@@ -810,14 +812,14 @@ namespace TimeSheetBO
             return CreateSelectStatement(sqlString);
         }
 
-        private string CreateSelectStatement(string whereClause, string orderByClause) 
+        private string CreateSelectStatement(string whereClause, string orderByClause)
         {
             StringBuilder sql = new StringBuilder();
-            if (! string.IsNullOrEmpty(whereClause)) 
+            if (!string.IsNullOrEmpty(whereClause))
             {
                 sql.Append(" WHERE ").Append(whereClause);
             }
-            if (! string.IsNullOrEmpty(orderByClause)) 
+            if (!string.IsNullOrEmpty(orderByClause))
             {
                 sql.Append(" ORDER BY ").Append(orderByClause);
             }
@@ -827,7 +829,7 @@ namespace TimeSheetBO
             return CreateSelectStatement(sqlString);
         }
 
-        private string CreateSelectStatement(string whereGroupClause) 
+        private string CreateSelectStatement(string whereGroupClause)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT ").Append(FieldNamesForSql());
@@ -840,10 +842,10 @@ namespace TimeSheetBO
             return sqlString;
         }
 
-        private string FieldNamesForSql() 
+        private string FieldNamesForSql()
         {
             StringBuilder sql = new StringBuilder();
-            foreach (TimeSheetFieldMap mapping in _fieldMappings.Values) 
+            foreach (TimeSheetFieldMap mapping in _fieldMappings.Values)
             {
                 if (sql.Length > 0)
                 {
@@ -854,27 +856,27 @@ namespace TimeSheetBO
             return sql.ToString();
         }
 
-        private string CreateUpdateStatement(TimeSheetBase o, IList fieldNamesToSet) 
+        private string CreateUpdateStatement(TimeSheetBase o, IList fieldNamesToSet)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("UPDATE ").Append(TableName);
             sql.Append(LockingHintClause);
             sql.Append(" SET ");
             bool first = true;
-            foreach (TimeSheetFieldMap mapping in _fieldMappings.Values) 
+            foreach (TimeSheetFieldMap mapping in _fieldMappings.Values)
             {
-                if (mapping.FieldName == PrimaryKey) 
+                if (mapping.FieldName == PrimaryKey)
                 {
                     continue;
                 }
-                if (o.CleanObject==null ||
-                    fieldNamesToSet.Contains(mapping.FieldName)) 
+                if (o.CleanObject == null ||
+                    fieldNamesToSet.Contains(mapping.FieldName))
                 {
-                    if (first) 
+                    if (first)
                     {
                         first = false;
-                    } 
-                    else 
+                    }
+                    else
                     {
                         sql.Append(", ");
                     }
@@ -889,7 +891,7 @@ namespace TimeSheetBO
             return sqlString;
         }
 
-        private string CreateDeleteStatement() 
+        private string CreateDeleteStatement()
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("DELETE ").Append(TableName);
@@ -900,18 +902,18 @@ namespace TimeSheetBO
             return sqlString;
         }
 
-        protected static string StringList(IEnumerable strings) 
+        protected static string StringList(IEnumerable strings)
         {
             StringBuilder list = new StringBuilder();
             list.Append("(");
             bool first = true;
-            foreach (string s in strings) 
+            foreach (string s in strings)
             {
-                if (first) 
+                if (first)
                 {
                     first = false;
-                } 
-                else 
+                }
+                else
                 {
                     list.Append(", ");
                 }
@@ -921,17 +923,17 @@ namespace TimeSheetBO
             return list.ToString();
         }
 
-        protected static SqlParameter [] GetguidSqlParams(IEnumerable objects) 
+        protected static SqlParameter[] GetguidSqlParams(IEnumerable objects)
         {
             ArrayList sqlParams = new ArrayList();
             int index = 0;
-            foreach (TimeSheetBase obj in objects) 
+            foreach (TimeSheetBase obj in objects)
             {
                 SqlParameter param = new SqlParameter("@guidfield" + index++, SqlDbType.UniqueIdentifier, 40);
                 param.Value = obj.GetDataLink().fieldValue(obj, obj.GetDataLink().PrimaryKey);
                 sqlParams.Add(param);
             }
-            return(SqlParameter[])sqlParams.ToArray(typeof(SqlParameter));
+            return (SqlParameter[])sqlParams.ToArray(typeof(SqlParameter));
         }
 
         public bool findField(string fieldName)
@@ -966,7 +968,7 @@ namespace TimeSheetBO
             TimeSheetFieldMap result = null;
             foreach (TimeSheetFieldMap mapping in _fieldMappings.Values)
             {
-                if(mapping.FieldName.Equals(fieldName, StringComparison.InvariantCultureIgnoreCase))
+                if (mapping.FieldName.Equals(fieldName, StringComparison.InvariantCultureIgnoreCase))
                 {
                     result = mapping;
                     break;

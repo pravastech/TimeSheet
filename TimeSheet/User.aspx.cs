@@ -20,24 +20,27 @@ namespace TimeSheet
                 {
                     Session["allSubmitKeys"] = allSubmitKeys + "," + submitKey;
                     CurrentUser user = new CurrentUser("TimeSheetAdmin");
-                    TimeSheetBO.Users TimeSheetObj = new TimeSheetBO.Users(user);
-                    TimeSheetObj.LoadSingle(TimeSheetObj, " where rolename=@rolename", "rolename", Request.Form["rolename"] ?? "");
-                    TimeSheetObj.UserName = Request.Form["UserName"];
-                    TimeSheetObj.FullName = Request.Form["FullName"];
-                    TimeSheetObj.emailAddress = Request.Form["EmailAddress"];
-                    TimeSheetObj.Address1 = Request.Form["Address1"];
-                    TimeSheetObj.Address2 = Request.Form["Address2"];
-                    TimeSheetObj.City = Request.Form["City"];
-                    TimeSheetObj.State = Request.Form["State"];
-                    TimeSheetObj.Role = Request.Form["Role"];
-                    if (TimeSheetObj.Save())
+                    TimeSheetBO.Users userRoleObj = new TimeSheetBO.Users(user);
+                    Guid guidfield;
+                    Guid.TryParse(Request.Form["guidfield"], out guidfield);
+                    userRoleObj.LoadSingle(userRoleObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
+                    userRoleObj.UserName = Request.Form["UserName"];
+                    userRoleObj.FullName = Request.Form["FullName"];
+                    userRoleObj.emailAddress = Request.Form["emailAddress"];
+                    userRoleObj.Address1 = Request.Form["Address1"];
+                    userRoleObj.Address2 = Request.Form["Address2"];
+                    userRoleObj.City = Request.Form["City"];
+                    userRoleObj.State = Request.Form["State"];
+                    userRoleObj.Role = Request.Form["Role"];
+                   
+                    if (userRoleObj.Save())
                     {
                         
-                        ltrMessage.Text = "Store saved successfully.";
+                        ltrMessage.Text = "User saved successfully.";
                     }
                     else
                     {
-                        ltrMessage.Text = "Unable to save store information.";
+                        ltrMessage.Text = "Unable to save User information.";
                     }
                 }
             }

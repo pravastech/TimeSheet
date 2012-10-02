@@ -12,7 +12,7 @@ namespace TimeSheetBO
     public class Users : TimeSheetBase
     {
         private static Hashtable _cache = null;
-
+        private CurrentUser _User;
         private String _UserName;
         private String _Password;
         private Guid _guidfield;
@@ -50,7 +50,7 @@ namespace TimeSheetBO
         public Users(CurrentUser User)
             : base()
         {
-            this.User = User;
+            this._User = User;
         }
 
         public static UsersDataLink UsersDataLink

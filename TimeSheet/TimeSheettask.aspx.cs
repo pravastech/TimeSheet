@@ -21,7 +21,9 @@ namespace TimeSheet
                     Session["allSubmitKeys"] = allSubmitKeys + "," + submitKey;
                     CurrentUser user = new CurrentUser("TimeSheetAdmin");
                     TimeSheetBO.timesheettask TimeSheetObj = new TimeSheetBO.timesheettask(user);
-                    TimeSheetObj.LoadSingle(TimeSheetObj, " where rolename=@rolename", "rolename", Request.Form["rolename"] ?? "");
+                    Guid guidfield;
+                    Guid.TryParse(Request.Form["guidfield"], out guidfield); 
+                    TimeSheetObj.LoadSingle(TimeSheetObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
                     TimeSheetObj.username = Request.Form["username"];
                     TimeSheetObj.projectname = Request.Form["projectname"];
                     TimeSheetObj.taskname = Request.Form["taskname"];
