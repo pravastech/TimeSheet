@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="TimeSheet.User" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="timesheettask.aspx.cs" Inherits="TimeSheet.timesheettask" %>
 
 <!DOCTYPE html>
 
@@ -43,17 +43,13 @@
         <form id="form" action="" method="post">
             <asp:Literal ID="ltrHiddens" runat="server"></asp:Literal>
             <fieldset>
-                 <p><label for="UserName">UserName </label><input type="text" name="UserName" id="username" class="sf" /></p>
-                 <p><label for="FullName">FullName</label><input type="text" name="FullName" id="fullname" /></p>
-                <p><label for="Password">Password</label><input type="text" name="Password" id="password" /></p>
-                <p><label for="EmailAddress">EmailAddress</label><input type="text" name="EmailAddress" id="emailaddress" /></p>
-                <p><label for="Address1">Address1</label><input type="text"  name="Address1" id="address1" /></p>
-                 <p><label for="Address2">Address2 </label><input type="text" name="Address2" id="address2" class="sf" /></p>
-                 <p><label for="City">City </label><input type="text" name="City" id="city" class="sf" /></p>
-                 <p><label for="State">State </label><input type="text" name="State" id="state" class="sf" maxlength="2" /></p>
-                 <p><label for="Zip">Zip </label><input type="text" name="Zip" id="zip" class="sf" /></p>
-                 <p><label for="Phone">Phone </label><input type="text" name="Phone" id="phone" class="sf" /></p>
-                 <p><label for="Role">Role </label><input type="text" name="Role" id="role" class="sf" /></p>
+                 <p><label for="username">UserName </label><input type="text" name="UserName" id="username" class="sf" /></p>
+                 <p><label for="ProjectName">FullName</label><input type="text" name="ProjectName" id="projectname" /></p>
+                <p><label for="TaskName">TaskName</label><input type="text" name="TaskName" id="taskname" /></p>
+                <p><label for="TaskDate">TaskDate</label><input type="date" name="TaskDate" id="taskdate" /></p>
+                <p><label for="Percentage">Percentage</label><input type="text"  name="Percentage" id="percentage" /></p>
+                 <p><label for="Notes">Notes</label><input type="text" name="Notes" id="notes" class="sf" /></p>
+                 <p><label for="CodeSnippet">CodeSnippet</label><input type="text" name="CodeSnippet" id="codesnippet" class="sf" /></p>
                 <p>
                     <button type="button" onclick="GridUtil.saveRow();">Submit</button>
                 </p>

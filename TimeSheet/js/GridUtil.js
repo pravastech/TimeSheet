@@ -19,8 +19,7 @@
                 }
             }
             $('#guidfield').val(rowData.guidfield);
-            $('#' + GridUtil.UIFormName()).dialog({
-                title: 'Edit ' + GridUtil.Title(), width: 600,
+            $('#' + GridUtil.UIFormName()).dialog({ title: 'Edit ' + GridUtil.Title(), width: 600,
                 open: GridUtil.dOpen()
             });
         } else {
@@ -72,20 +71,19 @@
             }
         }
         $('#guidfield').val('');
-        $('#' + GridUtil.UIFormName()).dialog({
-            title: 'New ' + GridUtil.Title(), width: 600,
+        $('#' + GridUtil.UIFormName()).dialog({ title: 'New ' + GridUtil.Title(), width: 600,
             open: GridUtil.dOpen()
         });
     },
 
-    dOpen: function () {
-        if (typeof GridUtil.dialogOpen != "undefined") {
+    dOpen : function(){
+        if(typeof GridUtil.dialogOpen != "undefined"){
             GridUtil.dialogOpen();
         }
     },
 
     saveRow: function () {
-        if (typeof GridUtil.beforeSave != "undefined") {
+        if(typeof GridUtil.beforeSave != "undefined"){
             GridUtil.beforeSave();
         }
         if (GridUtil.validateRow()) {

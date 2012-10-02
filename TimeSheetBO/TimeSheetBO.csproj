@@ -47,6 +47,7 @@
     <Compile Include="TimeSheetDataLink.cs" />
     <Compile Include="TimeSheetDefaultValues.cs" />
     <Compile Include="TimeSheetFieldMap.cs" />
+    <Compile Include="timesheettask.cs" />
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
