@@ -29,9 +29,9 @@ namespace TimeSheet
                     TimeSheetObj.taskname = Request.Form["taskname"];
                     DateTime tdate;
                     DateTime.TryParse(Request.Form["taskdate"],out tdate);
+                    DateTime taskdate = new DateTime();
                     TimeSheetObj.taskdate =  tdate;
                     string strbegintime = Request.Form["taskdate"];
-                    DateTime taskdate = new DateTime();
                     TimeSheetObj.percentage = Request.Form["Percentage"];
                     TimeSheetObj.notes = Request.Form["Notes"];
                     TimeSheetObj.codesnippet = Request.Form["CodeSnippet"];
@@ -52,9 +52,9 @@ namespace TimeSheet
         {
             CurrentUser user = new CurrentUser("TimeSheetAdmin"); /* This will change later only test purposes it is here, later it will become login user */
             var TimeSheetTaskGrid = TimeSheetGridUtility.TimeSheetTaskGrid(user);
-
+            TimeSheetTaskGrid.allowDelete = true;
             //var UserFields = new UserFields(user).load("", "", "").Cast<UserFields>().ToList();
-            var Users = new Users(user).Load("", "", user).Cast<Users>().ToList();
+            var Users = new TimeSheetBO.timesheettask(user).Load("", "", "").Cast<TimeSheetBO.timesheettask>().ToList();
             TimeSheetTaskGrid.Rows.AddRange(Users);
 
             ltrGridUI.Text = TimeSheetTaskGrid.gridTable.ToHTML();

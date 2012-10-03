@@ -12,20 +12,20 @@ namespace TimeSheet
         public static TimeSheetGrid TimeSheetTaskGrid(CurrentUser logUser)
         {
             TimeSheetGrid result = new TimeSheetGrid(logUser, "Users");
-            TimeSheetTable TimeSheetTaskTable = new TimeSheetTable();
-            TimeSheetTaskTable.tableId = "tblUserFields";
-            TimeSheetTaskTable.tableCSSClass = "dyntable";
-            TimeSheetTaskTable.Grid = result;
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "UserName", headerName = " User Name", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "ProjectName", headerName = "Project Name", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskName", headerName = "Task Name", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskDate", headerName = "Task Date", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Percentage", headerName = "Percentage", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Notes", headerName = "Notes", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "CodeSnippet", headerName = "CodeSnippet", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Phone", headerName = "Phone", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Role", headerName = "Role", isHeader = true });
-            result.gridTable = TimeSheetTaskTable;
+            TimeSheetTable TimeSheettaskTable = new TimeSheetTable();
+            TimeSheettaskTable.tableId = "tblTimeSheetTask";
+            TimeSheettaskTable.tableCSSClass = "dyntable";
+            TimeSheettaskTable.Grid = result;
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "UserName", headerName = " User Name", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "ProjectName", headerName = "Project Name", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskName", headerName = "Task Name", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskDate", headerName = "Task Date", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Percentage", headerName = "Percentage", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Notes", headerName = "Notes", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "CodeSnippet", headerName = "CodeSnippet", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Phone", headerName = "Phone", isHeader = true });
+            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Role", headerName = "Role", isHeader = true });
+            result.gridTable = TimeSheettaskTable;
             return result;
 
         }
@@ -51,20 +51,19 @@ namespace TimeSheet
         public static TimeSheetGrid UserFieldsGrid(CurrentUser logUser)
         {
             TimeSheetGrid result = new TimeSheetGrid(logUser, "Users");
-            TimeSheetTable TimeSheetTaskTable = new TimeSheetTable();
-            TimeSheetTaskTable.tableId = "tblUserFields";
-            TimeSheetTaskTable.tableCSSClass = "dyntable";
-            TimeSheetTaskTable.Grid = result;
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "UserName", headerName = " User Name", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "ProjectName", headerName = "Project Name", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskName", headerName = "Task Name", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskDate", headerName = "Task Date", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Percentage", headerName = "Percentage", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Notes", headerName = "Notes", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "CodeSnippet", headerName = "CodeSnippet", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Phone", headerName = "Phone", isHeader = true });
-            TimeSheetTaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Role", headerName = "Role", isHeader = true });
-            result.gridTable = TimeSheetTaskTable;
+            TimeSheetTable UserFieldsTable = new TimeSheetTable();
+            UserFieldsTable.tableId = "tblUserFields";
+            UserFieldsTable.tableCSSClass = "dyntable";
+            UserFieldsTable.Grid = result;
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "UserName", headerName = " User Name", isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "FullName", headerName = "Full Name", isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "Email Address", headerName = "Email Address", isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "Address1", headerName = "Address1", isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "Address2", headerName = "Address2", isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "City", headerName = "City", isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "State", headerName = "State",isHeader = true });
+            UserFieldsTable.Columns.Add(new TimeSheetColumn() { fieldName = "Role", headerName = "Role", isHeader = true });
+            result.gridTable = UserFieldsTable;
             return result;
 
         }

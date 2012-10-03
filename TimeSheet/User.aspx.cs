@@ -50,11 +50,11 @@ namespace TimeSheet
         {
             CurrentUser user = new CurrentUser("TimeSheetAdmin"); /* This will change later only test purposes it is here, later it will become login user */
             var UserFieldsGrid = TimeSheetGridUtility.UserFieldsGrid(user);
-
+            UserFieldsGrid.allowDelete = true;
             //var UserFields = new UserFields(user).load("", "", "").Cast<UserFields>().ToList();
             var Users = new TimeSheetBO.Users(user).Load("", "", user).Cast<TimeSheetBO.Users>().ToList();
             UserFieldsGrid.Rows.AddRange(Users);
-
+            
             ltrGridUI.Text = UserFieldsGrid.gridTable.ToHTML();
             ltrAddNew.Text = "<button type=\"button\" onclick=\"GridUtil.newRow();\">Add New</button>";
             ltrGridScript.Text = JSUtil.encloseInJavascriptTag("gridData = " + UserFieldsGrid.gridJS() + ";\ncolumnJS=[" + UserFieldsGrid.gridTable.columnJS() + "]");

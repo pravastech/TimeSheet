@@ -44,7 +44,7 @@
             <asp:Literal ID="ltrHiddens" runat="server"></asp:Literal>
             <fieldset>
                  <p><label for="username">UserName </label><input type="text" name="UserName" id="username" class="sf" /></p>
-                 <p><label for="ProjectName">FullName</label><input type="text" name="ProjectName" id="projectname" /></p>
+                 <p><label for="ProjectName">ProjectName</label><input type="text" name="ProjectName" id="projectname" /></p>
                 <p><label for="TaskName">TaskName</label><input type="text" name="TaskName" id="taskname" /></p>
                 <p><label for="TaskDate">TaskDate</label><input type="date" name="TaskDate" id="taskdate" /></p>
                 <p><label for="Percentage">Percentage</label><input type="text"  name="Percentage" id="percentage" /></p>
