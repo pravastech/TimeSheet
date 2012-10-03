@@ -16,3 +16,12 @@ C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\TimeSheetBO.dll
 C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\TimeSheetBO.pdb
 C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\ClassLibrary1.pdb
 C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.pdb
+C:\GitHub\TimeSheet\TimeSheet\bin\TimeSheet.dll
+C:\GitHub\TimeSheet\TimeSheet\bin\TimeSheet.pdb
+C:\GitHub\TimeSheet\TimeSheet\bin\ClassLibrary1.dll
+C:\GitHub\TimeSheet\TimeSheet\bin\TimeSheetBO.dll
+C:\GitHub\TimeSheet\TimeSheet\bin\TimeSheetBO.pdb
+C:\GitHub\TimeSheet\TimeSheet\bin\ClassLibrary1.pdb
+C:\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.csprojResolveAssemblyReference.cache
+C:\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.dll
+C:\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.pdb

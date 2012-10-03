@@ -3,3 +3,8 @@ F:\pavan\githubrepos\TimeSheet\TimeSheet\TimeSheetObjects\bin\TimeSheetObjects.p
 F:\pavan\githubrepos\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.csprojResolveAssemblyReference.cache
 F:\pavan\githubrepos\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.dll
 F:\pavan\githubrepos\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.pdb
+C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\bin\TimeSheetObjects.dll
+C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\bin\TimeSheetObjects.pdb
+C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.csprojResolveAssemblyReference.cache
+C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.dll
+C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.pdb
