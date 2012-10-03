@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/js/jquery-ui-1.8.13.custom.min.js?20121002"></script>
     <script type="text/javascript" src="/js/General.js?20121002"></script>
     <script type="text/javascript" src="/js/GridUtil.js?20121002"></script>
-    <%--<script src="~/Scripts/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>--%>  
+   
 <script type="text/javascript">
     var gridData = [];
 
