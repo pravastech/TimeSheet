@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CurrentUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task.cs" />
     <Compile Include="TimeSheetBase.cs" />
     <Compile Include="TimeSheetContext.cs" />
     <Compile Include="TimeSheetDataLink.cs" />

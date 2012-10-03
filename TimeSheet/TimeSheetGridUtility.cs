@@ -29,6 +29,23 @@ namespace TimeSheet
             return result;
 
         }
+		public static TimeSheetGrid taskGrid(CurrentUser logUser)
+        {
+            TimeSheetGrid result = new TimeSheetGrid(logUser, "Task");
+            TimeSheetTable taskTable = new TimeSheetTable();
+            taskTable.tableId = "tbltask";
+            taskTable.tableCSSClass = "dyntable";
+            taskTable.Grid = result;
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "ProjectName", headerName = "Project Name", isHeader = true });
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "TaskName", headerName = "Task Name", isHeader = true });
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "BeginDate", headerName = "Begin Date", isHeader = true });
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "EndDate", headerName = "End Date", isHeader = true });
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "DevUserName", headerName = "Dev UserName", isHeader = true });
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "QaUserName", headerName = "Qa UserName", isHeader = true });
+            taskTable.Columns.Add(new TimeSheetColumn() { fieldName = "ApprovedUserName", headerName = "Approved UserName", isHeader = true });
+            result.gridTable = taskTable;
+            return result;
+        }
         
    
         public static TimeSheetGrid UserFieldsGrid(CurrentUser logUser)

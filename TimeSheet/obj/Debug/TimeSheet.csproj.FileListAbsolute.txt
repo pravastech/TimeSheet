@@ -7,3 +7,12 @@ F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\ClassLibrary1.dll
 F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheetBO.dll
 F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\TimeSheetBO.pdb
 F:\pavan\githubrepos\TimeSheet\TimeSheet\bin\ClassLibrary1.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.csprojResolveAssemblyReference.cache
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\TimeSheet.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\TimeSheet.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\ClassLibrary1.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\TimeSheetBO.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\TimeSheetBO.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\bin\ClassLibrary1.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\obj\Debug\TimeSheet.pdb
