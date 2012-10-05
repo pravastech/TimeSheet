@@ -13,40 +13,22 @@ namespace TimeSheet {
     public partial class WebForm3 {
         
         /// <summary>
-        /// user control.
+        /// ltrMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor user;
+        protected global::System.Web.UI.WebControls.Literal ltrMessage;
         
         /// <summary>
-        /// lstChooseUsers control.
+        /// ltrChooseUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lstChooseUsers;
-        
-        /// <summary>
-        /// ltrHiddens control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrHiddens;
-        
-        /// <summary>
-        /// refresh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor refresh;
+        protected global::System.Web.UI.WebControls.Literal ltrChooseUsers;
         
         /// <summary>
         /// A1 control.
