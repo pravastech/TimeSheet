@@ -22,7 +22,7 @@
     }
 
     GridUtil.Title = function () {
-        return "UserFields";
+        return "User";
     }
 </script>
 
@@ -45,9 +45,8 @@
             <fieldset>
                  <p><label for="UserName">UserName </label><input type="text" name="UserName" id="username" class="sf" /></p>
                  <p><label for="FullName">FullName</label><input type="text" name="FullName" id="fullname" /></p>
-                <p><label for="Password">Password</label><input type="text" name="Password" id="password" /></p>
-                <p><label for="EmailAddress">EmailAddress</label><input type="text" name="EmailAddress" id="emailaddress" /></p>
-                <p><label for="Address1">Address1</label><input type="text"  name="Address1" id="address1" /></p>
+                 <p><label for="EmailAddress">EmailAddress</label><input type="text" name="EmailAddress" id="emailAddress" /></p>
+                 <p><label for="Address1">Address1</label><input type="text"  name="Address1" id="address1" /></p>
                  <p><label for="Address2">Address2 </label><input type="text" name="Address2" id="address2" class="sf" /></p>
                  <p><label for="City">City </label><input type="text" name="City" id="city" class="sf" /></p>
                  <p><label for="State">State </label><input type="text" name="State" id="state" class="sf" maxlength="2" /></p>

@@ -43,13 +43,13 @@
         <form id="form" action="" method="post">
             <asp:Literal ID="ltrHiddens" runat="server"></asp:Literal>
             <fieldset>
-                 <p><label for="username">UserName </label><input type="text" name="UserName" id="username" class="sf" /></p>
-                 <p><label for="ProjectName">ProjectName</label><input type="text" name="ProjectName" id="projectname" /></p>
-                <p><label for="TaskName">TaskName</label><input type="text" name="TaskName" id="taskname" /></p>
-                <p><label for="TaskDate">TaskDate</label><input type="date" name="TaskDate" id="taskdate" /></p>
-                <p><label for="Percentage">Percentage</label><input type="text"  name="Percentage" id="percentage" /></p>
-                 <p><label for="Notes">Notes</label><input type="text" name="Notes" id="notes" class="sf" /></p>
-                 <p><label for="CodeSnippet">CodeSnippet</label><input type="text" name="CodeSnippet" id="codesnippet" class="sf" /></p>
+                 <p><label for="Username">UserName </label><input type="text" name="username" id="username" class="sf" /></p>
+                 <p><label for="ProjectName">ProjectName</label><input type="text" name="projectname" id="projectname" /></p>
+                <p><label for="TaskName">TaskName</label><input type="text" name="taskname" id="taskname" /></p>
+                <p><label for="TaskDate">TaskDate</label><input type="date" name="taskdate" id="taskdate" /></p>
+                <p><label for="Percentage">Percentage</label><input type="text"  name="percentage" id="percentage" /></p>
+                 <p><label for="Notes">Notes</label><input type="text" name="notes" id="notes" class="sf" /></p>
+                 <p><label for="CodeSnippet">CodeSnippet</label><input type="text" name="codesnippet" id="codesnippet" class="sf" /></p>
                 <p>
                     <button type="button" onclick="GridUtil.saveRow();">Submit</button>
                 </p>

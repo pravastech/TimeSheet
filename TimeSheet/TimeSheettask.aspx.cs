@@ -23,39 +23,50 @@ namespace TimeSheet
                     TimeSheetBO.timesheettask TimeSheetObj = new TimeSheetBO.timesheettask(user);
                     Guid guidfield;
                     Guid.TryParse(Request.Form["guidfield"], out guidfield); 
+                  string req=  Request.Form["guidfield"];
+                    if (!string.IsNullOrEmpty(req)) 
+                    {
                     TimeSheetObj.LoadSingle(TimeSheetObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
-                    TimeSheetObj.username = Request.Form["username"];
-                    TimeSheetObj.projectname = Request.Form["projectname"];
-                    TimeSheetObj.taskname = Request.Form["taskname"];
+                    }
+                    TimeSheetObj.UserName = Request.Form["username"];
+                    TimeSheetObj.Projectname = Request.Form["projectname"];
+                    TimeSheetObj.Taskname = Request.Form["taskname"];
                     DateTime tdate;
-                    DateTime.TryParse(Request.Form["taskdate"],out tdate);
+                    DateTime.TryParse(Request.Form["taskDate"],out tdate);
                     DateTime taskdate = new DateTime();
-                    TimeSheetObj.taskdate =  tdate;
+                    TimeSheetObj.Taskdate =  tdate;
                     string strbegintime = Request.Form["taskdate"];
-                    TimeSheetObj.percentage = Request.Form["Percentage"];
-                    TimeSheetObj.notes = Request.Form["Notes"];
-                    TimeSheetObj.codesnippet = Request.Form["CodeSnippet"];
+                    TimeSheetObj.Percentage = Request.Form["percentage"];
+                    TimeSheetObj.Notes = Request.Form["notes"];
+                    TimeSheetObj.CodeSnippet = Request.Form["codesnippet"];
+                    //if (TimeSheetObj.username.Length == null)
+                    //   {
+                      
                     if (TimeSheetObj.Save())
                     {
 
-                        ltrMessage.Text = "Store saved successfully.";
+                        ltrMessage.Text = "TimeSheet saved successfully.";
                     }
                     else
                     {
-                        ltrMessage.Text = "Unable to save store information.";
+                        ltrMessage.Text = "Unable to save TimeSheet information.";
                     }
                 }
+                    //else 
+                    //{
+                    //    TimeSheetObj.Update();
+                    //}
             }
 
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            CurrentUser user = new CurrentUser("TimeSheetAdmin"); /* This will change later only test purposes it is here, later it will become login user */
+            CurrentUser user = new CurrentUser("TimeSheetAdmin"); 
             var TimeSheetTaskGrid = TimeSheetGridUtility.TimeSheetTaskGrid(user);
             TimeSheetTaskGrid.allowDelete = true;
             //var UserFields = new UserFields(user).load("", "", "").Cast<UserFields>().ToList();
-            var Users = new TimeSheetBO.timesheettask(user).Load("", "", "").Cast<TimeSheetBO.timesheettask>().ToList();
-            TimeSheetTaskGrid.Rows.AddRange(Users);
+            var timesheet = new TimeSheetBO.timesheettask(user).Load("", "", "").Cast<TimeSheetBO.timesheettask>().ToList();
+            TimeSheetTaskGrid.Rows.AddRange(timesheet);
 
             ltrGridUI.Text = TimeSheetTaskGrid.gridTable.ToHTML();
             ltrAddNew.Text = "<button type=\"button\" onclick=\"GridUtil.newRow();\">Add New</button>";

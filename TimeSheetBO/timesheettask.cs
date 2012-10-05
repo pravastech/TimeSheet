@@ -13,13 +13,14 @@ namespace TimeSheetBO
     {
         private static Hashtable _cache = null;
 
-        private String _username;
-        private String _projectname;
-        private String _taskname;
-        private DateTime _taskdate;
-        private String _percentage;
-        private String _notes;
-        private String _codesnippet;
+        private String _UserName;
+        private Guid _guidfield;
+        private String _Projectname;
+        private String _Taskname;
+        private DateTime _Taskdate;
+        private String _Percentage;
+        private String _Notes;
+        private String _CodeSnippet;
 
 
         public timesheettask()
@@ -52,40 +53,45 @@ namespace TimeSheetBO
             return _cache;
         }
 
-        public String username
+        public String UserName
         {
-            get { return _username; }
-            set { SetString(ref _username, value); }
+            get { return _UserName; }
+            set { SetString(ref _UserName, value); }
         }
-        public String projectname
+        public Guid guidfield
         {
-            get { return _projectname; }
-            set { SetString(ref _projectname, value); }
+            get { return _guidfield; }
+            set { SetGuid(ref _guidfield, value); }
         }
-        public String taskname
+        public String Projectname
         {
-            get { return _taskname; }
-            set { SetString(ref _taskname, value); }
+            get { return _Projectname; }
+            set { SetString(ref _Projectname, value); }
         }
-        public DateTime taskdate
+        public String Taskname
         {
-            get { return _taskdate; }
-            set { SetDateTime(ref _taskdate, value); }
+            get { return _Taskname; }
+            set { SetString(ref _Taskname, value); }
         }
-        public String percentage
+        public DateTime Taskdate
         {
-            get { return _percentage; }
-            set { SetString(ref _percentage, value); }
+            get { return _Taskdate; }
+            set { SetDateTime(ref _Taskdate, value); }
         }
-        public String notes
+        public String Percentage
         {
-            get { return _notes; }
-            set { SetString(ref _notes, value); }
+            get { return _Percentage; }
+            set { SetString(ref _Percentage, value); }
         }
-        public String codesnippet
+        public String Notes
         {
-            get { return _codesnippet; }
-            set { SetString(ref _codesnippet, value); }
+            get { return _Notes; }
+            set { SetString(ref _Notes, value); }
+        }
+        public String CodeSnippet
+        {
+            get { return _CodeSnippet; }
+            set { SetString(ref _CodeSnippet, value); }
         }
 
     }
@@ -96,13 +102,14 @@ namespace TimeSheetBO
         private timesheettaskDataLink()
             : base(typeof(timesheettask), "timesheettask")
         {
-            AddFieldMapping("_username", "username", false, false);
-            AddFieldMapping("_projectname", "projectname", false, false);
-            AddFieldMapping("_taskname", "taskname", false, false);
-            AddFieldMapping("_taskdate", "taskdate", false, false);
-            AddFieldMapping("_percentage", "percentage", false, false);
-            AddFieldMapping("_notes", "notes", false, false);
-            AddFieldMapping("_codesnippet", "codesnippet", false, false);
+            AddFieldMapping("_UserName", "UserName", false, true);
+            AddFieldMapping("_guidfield", "guidfield", false, true);
+            AddFieldMapping("_Projectname", "Projectname", false, true);
+            AddFieldMapping("_Taskname", "Taskname", false, false);
+            AddFieldMapping("_Taskdate", "Taskdate", false, false);
+            AddFieldMapping("_Percentage", "Percentage", false, true);
+            AddFieldMapping("_Notes", "Notes", false, false);
+            AddFieldMapping("_CodeSnippet", "CodeSnippet", false, false);
 
         }
 

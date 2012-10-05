@@ -11,7 +11,7 @@ namespace TimeSheet
     {
         public static TimeSheetGrid TimeSheetTaskGrid(CurrentUser logUser)
         {
-            TimeSheetGrid result = new TimeSheetGrid(logUser, "Users");
+            TimeSheetGrid result = new TimeSheetGrid(logUser, "timesheettask");
             TimeSheetTable TimeSheettaskTable = new TimeSheetTable();
             TimeSheettaskTable.tableId = "tblTimeSheetTask";
             TimeSheettaskTable.tableCSSClass = "dyntable";
@@ -23,8 +23,6 @@ namespace TimeSheet
             TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Percentage", headerName = "Percentage", isHeader = true });
             TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Notes", headerName = "Notes", isHeader = true });
             TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "CodeSnippet", headerName = "CodeSnippet", isHeader = true });
-            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Phone", headerName = "Phone", isHeader = true });
-            TimeSheettaskTable.Columns.Add(new TimeSheetColumn() { fieldName = "Role", headerName = "Role", isHeader = true });
             result.gridTable = TimeSheettaskTable;
             return result;
 

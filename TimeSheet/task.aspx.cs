@@ -73,8 +73,13 @@ namespace TimeSheet
                     CurrentUser user = new CurrentUser("TimeSheetAdmin");
                     TimeSheetBO.Task taskObj = new TimeSheetBO.Task(user);
                     Guid guidfield;
-                    Guid.TryParse(Request.Form["guidfield"], out guidfield); 
-                    taskObj.LoadSingle(taskObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
+                    Guid.TryParse(Request.Form["guidfield"], out guidfield);
+                    string req = Request.Form["guidfield"];
+                    if (!string.IsNullOrEmpty(req))
+                    {
+                        taskObj.LoadSingle(taskObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
+                    }
+                   // taskObj.LoadSingle(taskObj, " WHERE guidfield = @guidfield", "guidfield", guidfield);
                     taskObj.ProjectName = Request.Form["projectname"];
                     taskObj.TaskName = Request.Form["taskname"];
                    // taskObj.begindate = Request.Form["begindate"];

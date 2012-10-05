@@ -100,24 +100,24 @@ namespace TimeSheetBO
             {
                 _error = new ApplicationException("The username and/or password is incorrect.");
             }
-            else if (this.Users.disabledLogin)
-            {
-                _error = new ApplicationException("Your account has been disabled.");
-            }
-            else if (!this.IsTempPWExpired)
-            {
-                if (this.Users.tempPW.Equals(password))
-                {
-                    /* Logged in with Temp - Should Change Password */
-                    this.Users.User = this;
-                    this.IsLoggedInWithTemp = true;
-                    this.Users.tempPW = "";
-                    this.Users.tempPWExpiration = Convert.ToDateTime("01/01/1900");
-                    this.Users.Save();
+            //else if (this.Users.disabledLogin)
+            //{
+            //    _error = new ApplicationException("Your account has been disabled.");
+            //}
+            //else if (!this.IsTempPWExpired)
+            //{
+            //    if (this.Users.tempPW.Equals(password))
+            //    {
+            //        /* Logged in with Temp - Should Change Password */
+            //        this.Users.User = this;
+            //        this.IsLoggedInWithTemp = true;
+            //        this.Users.tempPW = "";
+            //        this.Users.tempPWExpiration = Convert.ToDateTime("01/01/1900");
+            //        this.Users.Save();
 
-                    loginResult = true;
-                }
-            }
+            //        loginResult = true;
+            //    }
+            //}
             
             if ((this.Users.Password??"").Equals(this.hashedPassword(password), StringComparison.InvariantCulture))
             {
