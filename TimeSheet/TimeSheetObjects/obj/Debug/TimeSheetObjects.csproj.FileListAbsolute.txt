@@ -8,3 +8,8 @@ C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\bin\TimeSheetObjects.pdb
 C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.csprojResolveAssemblyReference.cache
 C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.dll
 C:\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\bin\TimeSheetObjects.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\bin\TimeSheetObjects.pdb
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.csprojResolveAssemblyReference.cache
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.dll
+C:\Users\PRAVAS TECH\Documents\GitHub\TimeSheet\TimeSheet\TimeSheetObjects\obj\Debug\TimeSheetObjects.pdb

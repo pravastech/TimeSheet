@@ -75,11 +75,16 @@ namespace TimeSheet
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            String beginfromdate = Request.Form["beginFromDate"] ?? "";
-            if (string.IsNullOrEmpty(beginfromdate))
+            DateTime beginfromdate;
+                DateTime.TryParse(Request.Form["beginFromDate"], out beginfromdate);
+                if (beginfromdate == DateTime.MinValue)
             {
-                beginfromdate = DateTime.Today.AddDays(-1).ToString("MM/dd/yyyy");
+                beginfromdate = DateTime.Today.AddDays(-1);
             }
+            this.ltrPageScript.Text = JSUtil.encloseInJavascriptTag(@" $().ready(function(){
+$('#beginFromDate').val('" + beginfromdate.ToString("MM/dd/yyyy") + @"');
+
+               }); ");
             CurrentUser user = new CurrentUser("TimeSheetAdmin");
             var lstChooseUsers = new Users(user).Load("", "", "").Cast<Users>().ToList();
             this.ltrChooseUsers.Text = "<option value=\"\"></option>" +

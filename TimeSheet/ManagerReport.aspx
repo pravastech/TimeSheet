@@ -3,7 +3,7 @@
     <script type="text/javascript">
 
         function saveRow() {
-            $('#downloadFile').val('1');
+            //$('#downloadFile').val('1');
             $('form:last').submit();
         }
 </script>
@@ -13,6 +13,7 @@
             height: 53px;
         }
     </style>
+    <asp:Literal ID="ltrPageScript" runat="server"></asp:Literal>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

@@ -79,6 +79,7 @@
     <Compile Include="ManagerReport.aspx.designer.cs">
       <DependentUpon>ManagerReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="managerreport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
