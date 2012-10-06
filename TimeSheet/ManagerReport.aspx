@@ -60,7 +60,7 @@
                                 <div class="divbox">
                                     <ul style="width: 137px">
                                         <p>
-                                            <label for="todate">To Date</label><input type="date" name="enddate" id="beginToDate" />
+                                            <label for="todate">To Date</label><input type="date" name="enddate" id="endToDate" />
                                         </p>
                                     </ul>
                                 </div>
@@ -80,7 +80,7 @@
 
             <div style="grid-column-align: center">
 
-                <table style="background-color: #800000">
+                <%--<table style="background-color: #800000">
                     <tr>
                         <td style="vertical-align: top;" class="auto-style1">
                             <div class="divBox">
@@ -125,9 +125,11 @@
                             </div>
                         </td>
                     </tr>
-                </table>
+                </table>--%>
             </div>
-
+            <div>
+                <asp:Literal ID="ltrReportData" runat="server"></asp:Literal>
+            </div>
             <br />
         </div>
     </div>

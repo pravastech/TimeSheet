@@ -77,12 +77,39 @@ namespace TimeSheet
         {
             DateTime beginfromdate;
                 DateTime.TryParse(Request.Form["beginFromDate"], out beginfromdate);
+
+               
                 if (beginfromdate == DateTime.MinValue)
             {
                 beginfromdate = DateTime.Today.AddDays(-1);
             }
+
+
+                String beginfrmdate = Request.Form["beginFromDate"] ?? "";
+                if (string.IsNullOrEmpty(beginfrmdate))
+                {
+                    beginfrmdate = DateTime.Today.AddDays(-1).ToString("MM/dd/yyyy");
+                }
+
+                String endToDate = Request.Form["beginToDate"] ?? "";
+                if (string.IsNullOrEmpty(endToDate))
+                {
+                    endToDate = DateTime.Today.AddDays(-1).ToString("MM/dd/yyyy");
+                }
+
+                String strUser = Request.Form["chooseuser"] ?? "";
+                if (string.IsNullOrEmpty(endToDate))
+                {
+                    strUser = "TimeSheetAdmin";
+                }
+                manager_report objManagerReport = new manager_report(beginfrmdate, endToDate,strUser);
+
+                ltrReportData.Text = objManagerReport.ToTable();
+
             this.ltrPageScript.Text = JSUtil.encloseInJavascriptTag(@" $().ready(function(){
-$('#beginFromDate').val('" + beginfromdate.ToString("MM/dd/yyyy") + @"');
+$('#begindate').val('" + beginfrmdate + @"');
+$('#enddate').val('" + endToDate + @"');
+
 
                }); ");
             CurrentUser user = new CurrentUser("TimeSheetAdmin");

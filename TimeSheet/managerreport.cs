@@ -5,20 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using TimeSheetBO;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace TimeSheet
 {
      public class manager_report
     {
-        private List<mgrreport> managerreportlist = new List<mgrreport>();
+         private List<managerreportlist> managerreportlist = new List<managerreportlist>();
 
-        public manager_report(string bdate, string edate)
+        public manager_report(string bdate, string edate, string user)
         {
-            string tsql = "Select taskdate,project,task,status from timesheettask Where taskdate between '" + bdate.Replace("'","''") + "' and '" + edate.Replace("'","''") + "' order by 1, 2";
-            MakeDepositFile(tsql);
+            string tsql = "Select taskdate as 'Task Date',projectname as 'Project',taskname as 'Task',Notes as 'Status' from timesheettask Where taskdate between '" + bdate.Replace("'", "''") + "' and '" + edate.Replace("'", "''") + "' and UserName = '" + user + "' order by 1, 2";
+            //List<SqlParameter> dbparm = new List<SqlParameter>();
+
+            //dbparm.Add(new SqlParameter("@beginFromDate", bdate));
+            //dbparm.Add(new SqlParameter("@beginToDate", edate));
+            MakeManagerReport(tsql);
         }
 
-        private void MakeDepositFile(string sql)
+        private void MakeManagerReport(string sql)
         {
             TimeSheetContext context = new TimeSheetContext();
             SqlCommand dbCmd = context.CreateCommand(sql);
@@ -28,11 +33,11 @@ namespace TimeSheet
             while (reader.Read())
             {
                 managerreportlist fdep = new managerreportlist();
-                fdep.status = reader.GetString(0);
-                fdep.taskDate = reader.GetDateTime(1);
+                
+                fdep.taskDate = reader.GetDateTime(0);
+                fdep.project = reader.GetString(1);
                 fdep.task = reader.GetString(2);
-                fdep.project = reader.GetString(2);
-                fdep.Amount = reader.GetDecimal(3);
+                fdep.status = reader.GetString(3);
 
                 managerreportlist.Add(fdep);
             }
@@ -41,13 +46,12 @@ namespace TimeSheet
         public string ToTable()
         {
             StringBuilder sbTable = new StringBuilder();
-            sbTable.Append(@"<table cellpadding=""0"" cellspacing=""0"" border=""0"" class=""dyntable"" id=""tblFinDeposit"">");
+            sbTable.Append(@"<table cellpadding=""0"" cellspacing=""0"" border=""0""  id=""tblManReport"">");
             sbTable.Append(@"<thead><tr>
 <th class=""head1"">Status</th>
 <th class=""head0"">taskDate</th>
 <th class=""head1"">task</th>
-<th class=""head1"">project</th>
-<th class=""head0"">Amount</th>
+<th class=""head0"">project</th>
 </tr></thead>");
             sbTable.Append("<tbody>");
             managerreportlist.ForEach(x =>
@@ -78,19 +82,18 @@ namespace TimeSheet
         public DateTime taskDate { get; set; }
         public string task { get; set; }
         public string project { get; set; }
-        public decimal Amount { get; set; }
 
         public string ToTableRow()
         {
             return String.Format(@"<tr>
 <td>{0}</td><td>{1}</td><td>{2}</td>
 <td>{3}</td></tr>", HttpUtility.HtmlEncode(status), HttpUtility.HtmlEncode(taskDate.ToString("MM/dd/yyyy")), HttpUtility.HtmlEncode(task),
-                  HttpUtility.HtmlEncode(project),HttpUtility.HtmlEncode(Amount.ToString("0.00")));
+                  HttpUtility.HtmlEncode(project));
         }
 
         public override string ToString()
         {
-            return String.Format("{0},{1},{2},{3}", status, taskDate.ToString("MM/dd/yyyy"), task,project, Amount.ToString("0.00"));
+            return String.Format("{0},{1},{2},{3}", status, taskDate.ToString("MM/dd/yyyy"), task,project);
         }
     }
 }
