@@ -72,7 +72,7 @@ namespace TimeSheetBO
         public void Load()
         {
             _Users = new Users();
-            _Users.LoadSingle(_Users, " where username=@username", "username", this.userName);
+            _Users.LoadSingle(_Users, " where UserName=@username", "UserName", this.userName);
         }
 
         public bool IsTempPWExpired
@@ -138,15 +138,16 @@ namespace TimeSheetBO
 
         public string hashedPassword(string password)
         {
-            MD5 md = MD5.Create();
-            string shash = this.userName + password;
-            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
-            byte[] result = md.ComputeHash(encoding.GetBytes(shash));
+            //MD5 md = MD5.Create();
+            //string shash = this.userName + password;
+            //System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+            //byte[] result = md.ComputeHash(encoding.GetBytes(shash));
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < result.Length; i++)
-            {
-                sb.Append(result[i].ToString("x2"));
-            }
+            //for (int i = 0; i < result.Length; i++)
+            //{
+            //    sb.Append(result[i].ToString("x2"));
+            //}
+            sb.Append(password.ToString());
             return sb.ToString();
         }
 

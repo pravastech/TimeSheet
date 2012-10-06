@@ -112,7 +112,8 @@ $('#enddate').val('" + endToDate + @"');
 
 
                }); ");
-            CurrentUser user = new CurrentUser("TimeSheetAdmin");
+            //CurrentUser user = new CurrentUser("TimeSheetAdmin");
+            CurrentUser user = new CurrentUser(HttpContext.Current.Session["UserInSession"].ToString());
             var lstChooseUsers = new Users(user).Load("", "", "").Cast<Users>().ToList();
             this.ltrChooseUsers.Text = "<option value=\"\"></option>" +
             String.Join("", lstChooseUsers.Select(x => x.UserName).Distinct().Select(uname =>

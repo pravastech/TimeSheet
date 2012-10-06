@@ -126,7 +126,8 @@ namespace TimeSheet
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            CurrentUser user = new CurrentUser("TimeSheetAdmin");
+            //CurrentUser user = new CurrentUser("TimeSheetAdmin");
+            CurrentUser user = new CurrentUser(HttpContext.Current.Session["UserInSession"].ToString());
             var taskGrid = TimeSheetGridUtility.taskGrid(user);
             taskGrid.allowDelete = true;
 

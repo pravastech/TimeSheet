@@ -43,7 +43,7 @@ namespace TimeSheet
                 CurrentUser User = new CurrentUser(username);
                 if (User.IsLoginValid(password))
                 {
-                    HttpContext.Current.Session["UserInSession"] = User;
+                    HttpContext.Current.Session["UserInSession"] = username;
                     if (User.IsLoggedInWithTemp)
                     {
                         /* Should Change Password and fill in security questions */
